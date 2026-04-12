@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AHMAD &amp; CO. — Enterprise-grade Digital Transformation. DevOps, Cloud Infrastructure, AI-Powered Solutions, and Web Development for Modern Enterprises. Security-First. Cloud-Native.">
+  <meta name="keywords" content="Digital Transformation, DevOps, Cloud Infrastructure, AI Solutions, Web Development, RAG, AWS, Azure, Kubernetes, Middle East Tech, Enterprise Solutions">
+  <meta name="author" content="AHMAD & CO.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta property="og:title" content="AHMAD & CO. — Digital Transformation for Modern Enterprises">
+  <meta property="og:description" content="Security-First. Cloud-Native. AI-Powered. Enterprise-grade technology solutions for the digital age.">
+  <meta property="og:type" content="website">
+  <title>AHMAD & CO. — Digital Transformation for Modern Enterprises</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%230a0a0f' stroke='%233b82f6' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%233b82f6'/%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════════════════
+       NAVIGATION
+       ════════════════════════════════════════════════════════ -->
+  <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav__inner">
+        <!-- Logo -->
+        <a href="#" class="nav__logo" id="nav-logo" data-i18n="brand">
+          AHMAD & CO<span class="nav__logo-dot"></span>
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="nav__links" id="nav-links">
+          <a href="#services" class="nav__link" data-i18n="nav.services">Services</a>
+          <a href="#ai-solutions" class="nav__link" data-i18n="nav.solutions">AI Solutions</a>
+          <a href="#security" class="nav__link" data-i18n="nav.security">Security</a>
+          <a href="#case-studies" class="nav__link" data-i18n="nav.cases">Case Studies</a>
+          <a href="#tech-stack" class="nav__link" data-i18n="nav.tech">Tech Stack</a>
+          <a href="#contact" class="nav__link" data-i18n="nav.contact">Contact</a>
+        </div>
+
+        <!-- Actions -->
+        <div class="nav__actions">
+          <a href="#" class="btn btn--outline" id="client-portal-btn" data-i18n="nav.portal">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Client Portal
+          </a>
+          <a href="#contact" class="btn btn--primary" id="nav-cta-btn" data-i18n="nav.book">
+            Book Consultation
+          </a>
+          <!-- Mobile Menu Button -->
+          <button class="nav__menu-btn" id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div class="nav__mobile-menu" id="mobile-menu">
+      <a href="#services" class="nav__link" data-i18n="nav.services">Services</a>
+      <a href="#ai-solutions" class="nav__link" data-i18n="nav.solutions">AI Solutions</a>
+      <a href="#security" class="nav__link" data-i18n="nav.security">Security</a>
+      <a href="#case-studies" class="nav__link" data-i18n="nav.cases">Case Studies</a>
+      <a href="#tech-stack" class="nav__link" data-i18n="nav.tech">Tech Stack</a>
+      <a href="#contact" class="nav__link" data-i18n="nav.contact">Contact</a>
+      <div class="nav__actions">
+        <a href="#" class="btn btn--outline" data-i18n="nav.portal">Client Portal</a>
+        <a href="#contact" class="btn btn--primary" data-i18n="nav.book">Book Consultation</a>
+      </div>
+    </div>
+    <div class="nav__overlay" id="nav-overlay"></div>
+  </nav>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       HERO SECTION
+       ════════════════════════════════════════════════════════ -->
+  <section class="hero section" id="hero">
+    <!-- Particle Background -->
+    <div class="hero__canvas">
+      <canvas id="particles-canvas"></canvas>
+    </div>
+
+    <!-- Ambient Glows -->
+    <div class="hero__glow hero__glow--blue"></div>
+    <div class="hero__glow hero__glow--purple"></div>
+
+    <div class="container">
+      <div class="hero__content">
+        <!-- Badge -->
+        <div class="hero__badge reveal">
+          <span class="hero__badge-dot"></span>
+          <span data-i18n="hero.badge">Enterprise-Grade Technology Solutions</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="hero__title reveal reveal-delay-1" data-i18n="hero.title">
+          Digital Transformation<br>
+          for <span class="text-gradient">Modern Enterprises</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hero__subtitle reveal reveal-delay-2" data-i18n="hero.subtitle">
+          Security-First. Cloud-Native. AI-Powered. We architect resilient, 
+          scalable technology ecosystems that drive growth across the 
+          Middle East and beyond.
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero__ctas reveal reveal-delay-3">
+          <a href="#services" class="btn btn--primary btn--lg" id="hero-cta-services">
+            <span data-i18n="hero.cta1">Explore Our Services</span>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#contact" class="btn btn--outline btn--lg" id="hero-cta-contact">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span data-i18n="hero.cta2">Schedule a Call</span>
+          </a>
+        </div>
+
+        <!-- Trust Bar -->
+        <div class="hero__trust reveal reveal-delay-4">
+          <span class="hero__trust-label" data-i18n="hero.trusted">Trusted Technologies</span>
+          <div class="hero__trust-logos">
+            <span class="hero__trust-logo">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.75 11.35a4.32 4.32 0 0 1-.79-.06 3.6 3.6 0 0 1-.71-.22 3.2 3.2 0 0 1-.63-.37 3.7 3.7 0 0 1-.56-.53L12 5.59l-4.06 4.58a3.7 3.7 0 0 1-.56.53 3.2 3.2 0 0 1-.63.37 3.6 3.6 0 0 1-.71.22 4.32 4.32 0 0 1-.79.06H2v7.4h3.26v-4.33L12 21l6.74-6.58v4.33H22v-7.4h-3.25z"/></svg>
+              AWS
+            </span>
+            <span class="hero__trust-logo">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.483 11.373a6.291 6.291 0 0 0-.855 3.186c0 1.157.314 2.24.86 3.175l-3.122 2.416A10.735 10.735 0 0 1 1 14.559c0-2.211.665-4.263 1.804-5.972l2.679 2.786z"/><path d="M12 6.545c1.637 0 3.108.563 4.27 1.487l3.202-3.202C17.425 3.121 14.897 2 12 2 8.159 2 4.828 4.269 3.366 7.587l3.122 2.416C7.368 7.956 9.477 6.545 12 6.545z"/><path d="M12 17.455c-2.523 0-4.632-1.411-5.512-3.413l-3.122 2.416C4.828 19.731 8.159 22 12 22c2.775 0 5.186-1.016 7.105-2.919l-2.968-2.304c-1.04.675-2.383 1.078-4.137 1.078z" opacity=".7"/><path d="M22.36 12.227c0-.716-.067-1.443-.198-2.137H12v4.068h5.824c-.28 1.365-1.04 2.44-2.087 3.165l2.968 2.304C20.842 17.673 22.36 15.243 22.36 12.227z" opacity=".5"/></svg>
+              Azure
+            </span>
+            <span class="hero__trust-logo">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10.204 14.35l.007.01-.999 2.413a5.171 5.171 0 0 1-2.075-2.597l2.578-.437.489.611zm3.58-3.19c.063-.024.127-.05.19-.075l2.362-1.012a5.178 5.178 0 0 0-3.339-2.293l.787 3.38zm-1.27-3.38l-.787 3.38c.063.024.127.05.19.075l2.362 1.012a5.178 5.178 0 0 1-1.765-4.467zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/></svg>
+              Kubernetes
+            </span>
+            <span class="hero__trust-logo">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              Python
+            </span>
+            <span class="hero__trust-logo">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l6.83 3.41L12 10.99 5.17 7.59 12 4.18zM4 8.72l7 3.5v7.06l-7-3.5V8.72zm9 10.56V12.22l7-3.5v7.06l-7 3.5z"/></svg>
+              Terraform
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       STATS BAR
+       ════════════════════════════════════════════════════════ -->
+  <div class="section" style="padding-top: 0; padding-bottom: 0;">
+    <div class="container">
+      <div class="stats-bar reveal">
+        <div class="stat">
+          <div class="stat__value" data-count="150" data-suffix="+">0</div>
+          <div class="stat__label" data-i18n="stats.projects">Projects Delivered</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value" data-count="99" data-suffix=".9%">0</div>
+          <div class="stat__label" data-i18n="stats.uptime">Uptime Guaranteed</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value" data-count="24" data-suffix="/7">0</div>
+          <div class="stat__label" data-i18n="stats.support">Monitoring & Support</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value" data-count="3" data-suffix=" Continents">0</div>
+          <div class="stat__label" data-i18n="stats.global">Global Reach</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       SERVICES SECTION
+       ════════════════════════════════════════════════════════ -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal" data-i18n="services.label">What We Do</div>
+        <h2 class="section-title reveal reveal-delay-1" data-i18n="services.title">
+          End-to-End Technology <span class="text-gradient">Solutions</span>
+        </h2>
+        <p class="section-description reveal reveal-delay-2" data-i18n="services.desc">
+          From infrastructure to intelligence, we deliver comprehensive technology 
+          services that transform how enterprises operate, compete, and grow.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- DevOps & Cloud -->
+        <div class="service-card service-card--devops reveal reveal-delay-1" id="service-devops">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+              <circle cx="12" cy="13" r="2"/>
+              <path d="M12 11v-1m0 6v-1m-2.12-2.88l-.7-.7m5.64 5.64l-.7-.7m0-4.24l.7-.7m-5.64 5.64l.7-.7"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title" data-i18n="services.devops.title">DevOps & Cloud Infrastructure</h3>
+          <p class="service-card__desc" data-i18n="services.devops.desc">
+            Build resilient, auto-scaling infrastructure with enterprise-grade CI/CD pipelines. 
+            We manage your cloud so you can focus on your business.
+          </p>
+          <div class="service-card__features">
+            <div class="service-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="services.devops.f1">CI/CD Pipeline Automation</span>
+            </div>
+            <div class="service-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="services.devops.f2">AWS & Azure Management</span>
+            </div>
+            <div class="service-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="services.devops.f3">24/7 Infrastructure Monitoring</span>
+            </div>
+            <div class="service-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="services.devops.f4">Kubernetes Orchestration</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Web Development -->
+        <div class="service-card service-card--web reveal reveal-delay-2" id="service-web">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+              <line x1="12" y1="2" x2="12" y2="22" opacity="0.3"/>
+              <path d="M14.5 4l-5 16"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title" data-i18n="services.web.title">Web Development</h3>
+          <p class="service-card__desc" data-i18n="services.web.desc">
+            Scalable, high-performance web applications built with modern frameworks. 
+            From SaaS platforms to e-commerce engines — engineered for growth.
+          </p>
+          <div class="service-card__features">
+            <div class="service-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="services.web.f1">Next.js & React Applications</span>
+            </div>
+            <div class="service-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="services.web.f2">High-Performance E-commerce</span>
+            </div>
+            <div class="service-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="services.web.f3">Progressive Web Apps (PWA)</span>
+            </div>
+            <div class="service-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="services.web.f4">API Architecture & Integration</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Science & AI -->
+        <div class="service-card service-card--ai reveal reveal-delay-3" id="service-ai">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <circle cx="4" cy="6" r="2"/>
+              <circle cx="20" cy="6" r="2"/>
+              <circle cx="4" cy="18" r="2"/>
+              <circle cx="20" cy="18" r="2"/>
+              <line x1="6" y1="6" x2="9.5" y2="10"/>
+              <line x1="18" y1="6" x2="14.5" y2="10"/>
+              <line x1="6" y1="18" x2="9.5" y2="14"/>
+              <line x1="18" y1="18" x2="14.5" y2="14"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title" data-i18n="services.ai.title">Data Science & AI</h3>
+          <p class="service-card__desc" data-i18n="services.ai.desc">
+            Harness the power of machine learning and generative AI. From RAG models 
+            to predictive analytics — we turn your data into decisions.
+          </p>
+          <div class="service-card__features">
+            <div class="service-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="services.ai.f1">RAG Model Development</span>
+            </div>
+            <div class="service-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="services.ai.f2">Predictive Analytics</span>
+            </div>
+            <div class="service-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="services.ai.f3">Automated Data Workflows</span>
+            </div>
+            <div class="service-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="services.ai.f4">NLP & Document Intelligence</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Graphic Design -->
+        <div class="service-card service-card--design reveal reveal-delay-4" id="service-design">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+              <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+              <path d="M2 2l7.586 7.586"/>
+              <circle cx="11" cy="11" r="2"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title" data-i18n="services.design.title">Graphic Design</h3>
+          <p class="service-card__desc" data-i18n="services.design.desc">
+            Craft compelling visual narratives that elevate your brand. 
+            From identity systems to high-end marketing collateral that converts.
+          </p>
+          <div class="service-card__features">
+            <div class="service-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="services.design.f1">Brand Identity Systems</span>
+            </div>
+            <div class="service-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="services.design.f2">UI/UX Design for Apps</span>
+            </div>
+            <div class="service-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="services.design.f3">Marketing Collateral</span>
+            </div>
+            <div class="service-card__feature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="services.design.f4">Presentation & Pitch Decks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       AI-POWERED SOLUTIONS SPOTLIGHT
+       ════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" id="ai-solutions">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal" data-i18n="ai.label">Intelligence Layer</div>
+        <h2 class="section-title reveal reveal-delay-1" data-i18n="ai.title">
+          AI-Powered <span class="text-gradient">Solutions</span>
+        </h2>
+        <p class="section-description reveal reveal-delay-2" data-i18n="ai.desc">
+          We build intelligent systems that learn, adapt, and scale. Our AI solutions 
+          have powered platforms like LegalHub.AI — transforming how enterprises 
+          interact with complex data.
+        </p>
+      </div>
+
+      <div class="ai-section__grid">
+        <!-- Features List -->
+        <div class="ai-section__features">
+          <div class="ai-feature reveal reveal-delay-1">
+            <div class="ai-feature__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="ai-feature__title" data-i18n="ai.rag.title">Retrieval-Augmented Generation</div>
+              <div class="ai-feature__desc" data-i18n="ai.rag.desc">
+                Custom RAG pipelines that ground LLM responses in your proprietary data. 
+                Accurate, hallucination-free AI that knows your business.
+              </div>
+            </div>
+          </div>
+
+          <div class="ai-feature reveal reveal-delay-2">
+            <div class="ai-feature__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div>
+              <div class="ai-feature__title" data-i18n="ai.analytics.title">Predictive Analytics</div>
+              <div class="ai-feature__desc" data-i18n="ai.analytics.desc">
+                Machine learning models that forecast trends, detect anomalies, and 
+                uncover patterns hidden in your operational data.
+              </div>
+            </div>
+          </div>
+
+          <div class="ai-feature reveal reveal-delay-3">
+            <div class="ai-feature__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/>
+                <rect x="9" y="9" width="6" height="6"/>
+                <line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/>
+                <line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
+                <line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/>
+                <line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/>
+              </svg>
+            </div>
+            <div>
+              <div class="ai-feature__title" data-i18n="ai.automation.title">Intelligent Automation</div>
+              <div class="ai-feature__desc" data-i18n="ai.automation.desc">
+                End-to-end workflow automation powered by AI. From document processing 
+                to decision engines — eliminate manual bottlenecks.
+              </div>
+            </div>
+          </div>
+
+          <div class="ai-feature reveal reveal-delay-4">
+            <div class="ai-feature__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10 9 9 9 8 9"/>
+              </svg>
+            </div>
+            <div>
+              <div class="ai-feature__title" data-i18n="ai.nlp.title">NLP & Document Intelligence</div>
+              <div class="ai-feature__desc" data-i18n="ai.nlp.desc">
+                Extract insights from unstructured text, contracts, and documents. 
+                Powering solutions like LegalHub.AI for legal-tech transformation.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Orb -->
+        <div class="ai-visual reveal-right">
+          <div class="ai-visual__orb">
+            <div class="ai-visual__label">
+              AI Engine
+              <span>Powering Intelligent Enterprise</span>
+            </div>
+          </div>
+          <div class="ai-visual__node">RAG</div>
+          <div class="ai-visual__node">NLP</div>
+          <div class="ai-visual__node">ML</div>
+          <div class="ai-visual__node">CV</div>
+          <div class="ai-visual__node">LLM</div>
+          <div class="ai-visual__node">ETL</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       SECURITY-FIRST APPROACH
+       ════════════════════════════════════════════════════════ -->
+  <section class="section" id="security">
+    <div class="container">
+      <div class="security-grid">
+        <!-- Visual -->
+        <div class="security-visual reveal-left">
+          <div class="security-shield">
+            <svg class="security-shield__svg" viewBox="0 0 200 230" fill="none">
+              <path d="M100 10 L190 55 L190 130 C190 175 150 210 100 225 C50 210 10 175 10 130 L10 55 Z" 
+                    stroke="rgba(16,185,129,0.3)" stroke-width="1.5" fill="rgba(16,185,129,0.03)"/>
+              <path d="M100 30 L170 65 L170 125 C170 160 140 190 100 202 C60 190 30 160 30 125 L30 65 Z" 
+                    stroke="rgba(16,185,129,0.15)" stroke-width="1" fill="rgba(16,185,129,0.02)"/>
+              <!-- Checkmark -->
+              <polyline points="70,120 92,142 135,95" stroke="rgba(16,185,129,0.8)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <div class="shield-scan"></div>
+            <div class="security-shield__rings"></div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div>
+          <div class="section-label reveal" data-i18n="security.label">Enterprise Security</div>
+          <h2 class="section-title reveal reveal-delay-1" data-i18n="security.title">
+            Security-First <span class="text-gradient">Approach</span>
+          </h2>
+          <p class="section-description reveal reveal-delay-2" style="margin-bottom: var(--space-8);" data-i18n="security.desc">
+            In an era of escalating cyber threats, we embed security into every layer of your 
+            technology stack. Compliance-ready, audit-proof, and always vigilant.
+          </p>
+
+          <div class="security-pillars">
+            <div class="security-pillar reveal reveal-delay-2">
+              <div class="security-pillar__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              <div>
+                <div class="security-pillar__title" data-i18n="security.encryption.title">End-to-End Encryption</div>
+                <div class="security-pillar__desc" data-i18n="security.encryption.desc">AES-256 encryption at rest and in transit. Your data stays protected, always.</div>
+              </div>
+            </div>
+
+            <div class="security-pillar reveal reveal-delay-3">
+              <div class="security-pillar__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <div class="security-pillar__title" data-i18n="security.zt.title">Zero Trust Architecture</div>
+                <div class="security-pillar__desc" data-i18n="security.zt.desc">Never trust, always verify. Multi-layered access controls with continuous validation.</div>
+              </div>
+            </div>
+
+            <div class="security-pillar reveal reveal-delay-4">
+              <div class="security-pillar__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <div>
+                <div class="security-pillar__title" data-i18n="security.compliance.title">Regulatory Compliance</div>
+                <div class="security-pillar__desc" data-i18n="security.compliance.desc">GDPR, ISO 27001, SOC 2 compliant frameworks. Built for Middle East & EU regulations.</div>
+              </div>
+            </div>
+
+            <div class="security-pillar reveal reveal-delay-5">
+              <div class="security-pillar__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <div>
+                <div class="security-pillar__title" data-i18n="security.soc.title">24/7 SOC Monitoring</div>
+                <div class="security-pillar__desc" data-i18n="security.soc.desc">Real-time threat detection and incident response. Our security operations center never sleeps.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       OUR TEAM
+       ════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" id="team">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal" data-i18n="team.label">The People Behind the Code</div>
+        <h2 class="section-title reveal reveal-delay-1" data-i18n="team.title">
+          Meet Our <span class="text-gradient">Team</span>
+        </h2>
+        <p class="section-description reveal reveal-delay-2" data-i18n="team.desc">
+          A passionate team of engineers, scientists, and strategists dedicated to 
+          delivering exceptional technology solutions for enterprises worldwide.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <!-- Khizar Ahmad -->
+        <div class="team-card team-card--blue reveal reveal-delay-1" id="team-khizar">
+          <div class="team-card__photo-wrap">
+            <img class="team-card__photo" src="Khizar Ahmad- Full Stack AI Engineer.jpeg" alt="Khizar Ahmad — Full Stack AI Engineer" loading="lazy">
+          </div>
+          <h3 class="team-card__name" data-i18n="team.khizar.name">Khizar Ahmad</h3>
+          <div class="team-card__role" data-i18n="team.khizar.role">Full Stack AI Engineer</div>
+          <p class="team-card__bio" data-i18n="team.khizar.bio">
+            Architecting intelligent full-stack solutions that bridge cutting-edge AI 
+            with scalable web platforms. Expert in RAG systems, LLMs, and modern 
+            web frameworks.
+          </p>
+          <div class="team-card__socials">
+            <a href="#" class="team-card__social" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" class="team-card__social" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <a href="#" class="team-card__social" aria-label="Twitter/X">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Jawad Idress -->
+        <div class="team-card team-card--purple reveal reveal-delay-2" id="team-jawad">
+          <div class="team-card__photo-wrap" style="background: linear-gradient(135deg, #8b5cf6, #3b82f6);">
+            <img class="team-card__photo" src="Jawad Idress Data Science.jpeg" alt="Jawad Idress — Data Scientist" loading="lazy">
+          </div>
+          <h3 class="team-card__name" data-i18n="team.jawad.name">Jawad Idress</h3>
+          <div class="team-card__role" data-i18n="team.jawad.role">Data Scientist</div>
+          <p class="team-card__bio" data-i18n="team.jawad.bio">
+            Transforming raw data into actionable intelligence. Specializes in 
+            predictive analytics, machine learning pipelines, and building 
+            data-driven decision systems.
+          </p>
+          <div class="team-card__socials">
+            <a href="#" class="team-card__social" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" class="team-card__social" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <a href="#" class="team-card__social" aria-label="Twitter/X">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Cloud & DevOps Engineer -->
+        <div class="team-card team-card--green reveal reveal-delay-3" id="team-devops">
+          <div class="team-card__photo-wrap" style="background: linear-gradient(135deg, #10b981, #3b82f6);">
+            <img class="team-card__photo" src="muhammad-ahmad-devops.png" alt="Muhammad Ahmad — Cloud & DevOps Engineer" loading="lazy" style="object-position: center 15%;">
+          </div>
+          <h3 class="team-card__name" data-i18n="team.devops.name">Muhammad Ahmad</h3>
+          <div class="team-card__role" data-i18n="team.devops.role">Cloud & DevOps Engineer</div>
+          <p class="team-card__bio" data-i18n="team.devops.bio">
+            Building bulletproof cloud infrastructure and CI/CD pipelines. 
+            Expert in AWS, Azure, Kubernetes orchestration, and ensuring 
+            99.9% uptime for mission-critical systems.
+          </p>
+          <div class="team-card__socials">
+            <a href="#" class="team-card__social" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" class="team-card__social" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <a href="#" class="team-card__social" aria-label="Twitter/X">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       CASE STUDIES
+       ════════════════════════════════════════════════════════ -->
+  <section class="section" id="case-studies">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal" data-i18n="cases.label">Proven Results</div>
+        <h2 class="section-title reveal reveal-delay-1" data-i18n="cases.title">
+          Featured <span class="text-gradient">Case Studies</span>
+        </h2>
+        <p class="section-description reveal reveal-delay-2" data-i18n="cases.desc">
+          Real-world impact. Measurable outcomes. See how we've helped enterprises 
+          achieve their digital transformation goals.
+        </p>
+      </div>
+
+      <div class="cases-grid">
+        <!-- Case 1: LegalHub.AI -->
+        <div class="case-card reveal reveal-delay-1" id="case-legalhub">
+          <div class="case-card__image" id="case-img-1" style="background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(59,130,246,0.1)); display: flex; align-items: center; justify-content: center;">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <rect x="10" y="15" width="60" height="50" rx="8" stroke="rgba(139,92,246,0.5)" stroke-width="1.5" fill="rgba(139,92,246,0.05)"/>
+              <circle cx="40" cy="35" r="10" stroke="rgba(139,92,246,0.4)" stroke-width="1.5" fill="none"/>
+              <path d="M40 30 L40 40 L47 43" stroke="rgba(139,92,246,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="20" y1="52" x2="60" y2="52" stroke="rgba(139,92,246,0.2)" stroke-width="1"/>
+              <line x1="20" y1="57" x2="50" y2="57" stroke="rgba(139,92,246,0.15)" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="case-card__body">
+            <span class="case-card__tag" data-i18n="cases.legalhub.tag">AI / Legal Tech</span>
+            <h4 class="case-card__title" data-i18n="cases.legalhub.title">LegalHub.AI — Intelligent Legal Research</h4>
+            <p class="case-card__desc" data-i18n="cases.legalhub.desc">
+              Built a RAG-powered legal research platform that reduced document review time 
+              by 70% for a leading Middle East law firm.
+            </p>
+            <div class="case-card__metrics">
+              <div class="case-card__metric">
+                <div class="case-card__metric-value">70%</div>
+                <div class="case-card__metric-label" data-i18n="cases.legalhub.m1">Faster Review</div>
+              </div>
+              <div class="case-card__metric">
+                <div class="case-card__metric-value">500K+</div>
+                <div class="case-card__metric-label" data-i18n="cases.legalhub.m2">Docs Indexed</div>
+              </div>
+              <div class="case-card__metric">
+                <div class="case-card__metric-value">98%</div>
+                <div class="case-card__metric-label" data-i18n="cases.legalhub.m3">Accuracy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2: Cloud Migration -->
+        <div class="case-card reveal reveal-delay-2" id="case-cloud">
+          <div class="case-card__image" id="case-img-2" style="background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(16,185,129,0.1)); display: flex; align-items: center; justify-content: center;">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <path d="M55 45h5a12 12 0 0 0 0-24 12 12 0 0 0-22.5-5A10 10 0 0 0 20 25a10 10 0 0 0 0 20h5" stroke="rgba(59,130,246,0.5)" stroke-width="1.5" fill="none"/>
+              <polyline points="35 55 40 45 45 55" stroke="rgba(59,130,246,0.5)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+              <line x1="40" y1="45" x2="40" y2="65" stroke="rgba(59,130,246,0.3)" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="case-card__body">
+            <span class="case-card__tag" style="background: rgba(59,130,246,0.1);" data-i18n="cases.cloud.tag">Cloud / DevOps</span>
+            <h4 class="case-card__title" data-i18n="cases.cloud.title">Enterprise Cloud Migration</h4>
+            <p class="case-card__desc" data-i18n="cases.cloud.desc">
+              Migrated a financial services firm from on-prem to AWS with zero downtime, 
+              reducing infrastructure costs by 40%.
+            </p>
+            <div class="case-card__metrics">
+              <div class="case-card__metric">
+                <div class="case-card__metric-value">40%</div>
+                <div class="case-card__metric-label" data-i18n="cases.cloud.m1">Cost Reduced</div>
+              </div>
+              <div class="case-card__metric">
+                <div class="case-card__metric-value">0</div>
+                <div class="case-card__metric-label" data-i18n="cases.cloud.m2">Downtime</div>
+              </div>
+              <div class="case-card__metric">
+                <div class="case-card__metric-value">3x</div>
+                <div class="case-card__metric-label" data-i18n="cases.cloud.m3">Faster Deploy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3: E-commerce Platform -->
+        <div class="case-card reveal reveal-delay-3" id="case-ecommerce">
+          <div class="case-card__image" id="case-img-3" style="background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(16,185,129,0.1)); display: flex; align-items: center; justify-content: center;">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <rect x="15" y="20" width="50" height="35" rx="6" stroke="rgba(245,158,11,0.5)" stroke-width="1.5" fill="none"/>
+              <circle cx="30" cy="62" r="3" stroke="rgba(245,158,11,0.4)" stroke-width="1.5" fill="none"/>
+              <circle cx="50" cy="62" r="3" stroke="rgba(245,158,11,0.4)" stroke-width="1.5" fill="none"/>
+              <line x1="33" y1="62" x2="47" y2="62" stroke="rgba(245,158,11,0.3)" stroke-width="1.5"/>
+              <polyline points="25 35 35 30 45 38 55 28" stroke="rgba(245,158,11,0.5)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
+          <div class="case-card__body">
+            <span class="case-card__tag" style="background: rgba(245,158,11,0.1); color: #f59e0b;" data-i18n="cases.ecom.tag">E-commerce / Web</span>
+            <h4 class="case-card__title" data-i18n="cases.ecom.title">Luxury E-commerce Platform</h4>
+            <p class="case-card__desc" data-i18n="cases.ecom.desc">
+              Built a high-performance e-commerce engine for a luxury retail brand in Dubai. 
+              Sub-second load times, multilingual, multi-currency.
+            </p>
+            <div class="case-card__metrics">
+              <div class="case-card__metric">
+                <div class="case-card__metric-value">0.8s</div>
+                <div class="case-card__metric-label" data-i18n="cases.ecom.m1">Load Time</div>
+              </div>
+              <div class="case-card__metric">
+                <div class="case-card__metric-value">250%</div>
+                <div class="case-card__metric-label" data-i18n="cases.ecom.m2">Conv. Rate ↑</div>
+              </div>
+              <div class="case-card__metric">
+                <div class="case-card__metric-value">12</div>
+                <div class="case-card__metric-label" data-i18n="cases.ecom.m3">Languages</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       TECH STACK
+       ════════════════════════════════════════════════════════ -->
+  <section class="section" id="tech-stack">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal" data-i18n="tech.label">Our Arsenal</div>
+        <h2 class="section-title reveal reveal-delay-1" data-i18n="tech.title">
+          Technology <span class="text-gradient">Stack</span>
+        </h2>
+        <p class="section-description reveal reveal-delay-2" data-i18n="tech.desc">
+          We leverage industry-leading tools and platforms to deliver solutions that 
+          are robust, scalable, and future-proof.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="tab-filters reveal">
+        <button class="tab-filter active" data-filter="all" id="tab-all">All</button>
+        <button class="tab-filter" data-filter="cloud" id="tab-cloud">Cloud</button>
+        <button class="tab-filter" data-filter="frontend" id="tab-frontend">Frontend</button>
+        <button class="tab-filter" data-filter="backend" id="tab-backend">Backend</button>
+        <button class="tab-filter" data-filter="ai" id="tab-ai">AI / ML</button>
+        <button class="tab-filter" data-filter="devops" id="tab-devops">DevOps</button>
+      </div>
+
+      <!-- Tech Grid -->
+      <div class="tech-grid reveal">
+        <!-- Cloud -->
+        <div class="tech-badge" data-category="cloud" id="tech-aws">
+          <div class="tech-badge__icon">
+            <svg viewBox="0 0 24 24" fill="#FF9900"><path d="M18.75 11.35a4.32 4.32 0 0 1-.79-.06 3.6 3.6 0 0 1-.71-.22 3.2 3.2 0 0 1-.63-.37 3.7 3.7 0 0 1-.56-.53L12 5.59l-4.06 4.58a3.7 3.7 0 0 1-.56.53 3.2 3.2 0 0 1-.63.37 3.6 3.6 0 0 1-.71.22 4.32 4.32 0 0 1-.79.06H2v7.4h3.26v-4.33L12 21l6.74-6.58v4.33H22v-7.4h-3.25z"/></svg>
+          </div>
+          <span class="tech-badge__name">AWS</span>
+        </div>
+
+        <div class="tech-badge" data-category="cloud" id="tech-azure">
+          <div class="tech-badge__icon">
+            <svg viewBox="0 0 24 24" fill="#0089D6"><path d="M5.483 11.373a6.291 6.291 0 0 0-.855 3.186c0 1.157.314 2.24.86 3.175l-3.122 2.416A10.735 10.735 0 0 1 1 14.559c0-2.211.665-4.263 1.804-5.972l2.679 2.786z"/><path d="M12 6.545c1.637 0 3.108.563 4.27 1.487l3.202-3.202C17.425 3.121 14.897 2 12 2 8.159 2 4.828 4.269 3.366 7.587l3.122 2.416C7.368 7.956 9.477 6.545 12 6.545z"/></svg>
+          </div>
+          <span class="tech-badge__name">Azure</span>
+        </div>
+
+        <div class="tech-badge" data-category="cloud devops" id="tech-gcp">
+          <div class="tech-badge__icon">
+            <svg viewBox="0 0 24 24" fill="#4285F4"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.89 13.5h-2.14l-1.05-1.82H10.3l-1.05 1.82H7.11L12 6.5l4.89 9z"/></svg>
+          </div>
+          <span class="tech-badge__name">GCP</span>
+        </div>
+
+        <!-- Frontend -->
+        <div class="tech-badge" data-category="frontend" id="tech-react">
+          <div class="tech-badge__icon">
+            <svg viewBox="0 0 24 24" fill="#61DAFB"><circle cx="12" cy="12" r="2.139"/><ellipse cx="12" cy="12" rx="11" ry="4.2" fill="none" stroke="#61DAFB" stroke-width="1"/><ellipse cx="12" cy="12" rx="11" ry="4.2" fill="none" stroke="#61DAFB" stroke-width="1" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="11" ry="4.2" fill="none" stroke="#61DAFB" stroke-width="1" transform="rotate(120 12 12)"/></svg>
+          </div>
+          <span class="tech-badge__name">React</span>
+        </div>
+
+        <div class="tech-badge" data-category="frontend" id="tech-nextjs">
+          <div class="tech-badge__icon" style="font-size: 1.5rem; font-weight: 800; color: #fff;">N</div>
+          <span class="tech-badge__name">Next.js</span>
+        </div>
+
+        <div class="tech-badge" data-category="frontend" id="tech-typescript">
+          <div class="tech-badge__icon">
+            <svg viewBox="0 0 24 24" fill="#3178C6"><path d="M0 12v12h24V0H0v12zm19.341-.956c.61.152 1.074.423 1.501.865.221.236.549.666.575.77.008.03-1.036.73-1.668 1.123-.023.015-.115-.084-.217-.236-.311-.45-.633-.644-1.128-.678-.728-.05-1.2.332-1.192.834 0 .16.032.29.09.411.146.31.437.508 1.217.824 1.437.583 2.054 1.167 2.355 2.046.33.967.162 1.888-.449 2.576-.42.474-1.029.775-1.807.89-.279.04-.93.035-1.224-.01-.63-.09-1.222-.362-1.62-.74-.234-.218-.651-.76-.631-.818.008-.018.238-.162.509-.32l.83-.482.29-.17.155.224c.186.27.395.455.645.556.271.116.786.134 1.063.038.305-.1.45-.274.45-.546 0-.212-.056-.323-.218-.465-.209-.182-.505-.315-1.301-.585-1.177-.398-1.635-.659-2.052-1.178-.238-.292-.44-.724-.525-1.117-.062-.282-.074-1.045-.029-1.29.198-1.108 1.16-1.977 2.555-2.307.299-.064 1.107-.05 1.434.02zm-5.587 1.252l.009 1.187h-3.254v9.263H8.153v-9.263H4.888v-1.16c0-.639.015-1.179.032-1.203.015-.017 1.996-.027 4.394-.024l4.367.009.114 1.191z"/></svg>
+          </div>
+          <span class="tech-badge__name">TypeScript</span>
+        </div>
+
+        <!-- Backend -->
+        <div class="tech-badge" data-category="backend" id="tech-python">
+          <div class="tech-badge__icon">
+            <svg viewBox="0 0 24 24" fill="#3776AB"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 15.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 13v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V5h2c1.1 0 2-.9 2-2v-.41A7.97 7.97 0 0 1 20 12c0 1.24-.29 2.41-.8 3.46l-.3-.07z"/></svg>
+          </div>
+          <span class="tech-badge__name">Python</span>
+        </div>
+
+        <div class="tech-badge" data-category="backend" id="tech-nodejs">
+          <div class="tech-badge__icon">
+            <svg viewBox="0 0 24 24" fill="#339933"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l6.83 3.41L12 10.99 5.17 7.59 12 4.18z"/></svg>
+          </div>
+          <span class="tech-badge__name">Node.js</span>
+        </div>
+
+        <div class="tech-badge" data-category="backend" id="tech-postgres">
+          <div class="tech-badge__icon">
+            <svg viewBox="0 0 24 24" fill="#4169E1"><path d="M12 2C8 2 4 3.5 4 6v12c0 2.5 4 4 8 4s8-1.5 8-4V6c0-2.5-4-4-8-4zm0 2c3.3 0 6 1.1 6 2.5S15.3 9 12 9 6 7.9 6 6.5 8.7 4 12 4z"/></svg>
+          </div>
+          <span class="tech-badge__name">PostgreSQL</span>
+        </div>
+
+        <!-- AI/ML -->
+        <div class="tech-badge" data-category="ai" id="tech-tensorflow">
+          <div class="tech-badge__icon">
+            <svg viewBox="0 0 24 24" fill="#FF6F00"><path d="M12 2L2 7v5l4 2v5l6 3 6-3v-5l4-2V7L12 2zm0 2.18l6.83 3.41L12 11l-6.83-3.41L12 4.18z"/></svg>
+          </div>
+          <span class="tech-badge__name">TensorFlow</span>
+        </div>
+
+        <div class="tech-badge" data-category="ai" id="tech-pytorch">
+          <div class="tech-badge__icon">
+            <svg viewBox="0 0 24 24" fill="#EE4C2C"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3 14h-6a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1z"/></svg>
+          </div>
+          <span class="tech-badge__name">PyTorch</span>
+        </div>
+
+        <div class="tech-badge" data-category="ai" id="tech-langchain">
+          <div class="tech-badge__icon" style="font-size: 1.2rem; font-weight: 700; color: #10b981;">🦜</div>
+          <span class="tech-badge__name">LangChain</span>
+        </div>
+
+        <!-- DevOps -->
+        <div class="tech-badge" data-category="devops cloud" id="tech-kubernetes">
+          <div class="tech-badge__icon">
+            <svg viewBox="0 0 24 24" fill="#326CE5"><path d="M10.204 14.35l.007.01-.999 2.413a5.171 5.171 0 0 1-2.075-2.597l2.578-.437.489.611zm3.58-3.19c.063-.024.127-.05.19-.075l2.362-1.012a5.178 5.178 0 0 0-3.339-2.293l.787 3.38zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/></svg>
+          </div>
+          <span class="tech-badge__name">Kubernetes</span>
+        </div>
+
+        <div class="tech-badge" data-category="devops" id="tech-docker">
+          <div class="tech-badge__icon">
+            <svg viewBox="0 0 24 24" fill="#2496ED"><path d="M13 4v2h2V4h-2zm-2 0v2h2V4h-2zm-2 0v2h2V4H9zm-2 2v2h2V6H7zm-2 0v2h2V6H5zm8 0v2h2V6h-2zm-4 2v2h2V8H9zm-2 0v2h2V8H7zm-2 0v2h2V8H5zm14.88 2.16c-.39-.28-.95-.46-1.69-.55-.2-1.2-.94-2.24-1.88-2.85l-.38-.23-.24.37c-.3.46-.47 1-.52 1.49-.09.87.16 1.7.68 2.37-.63.37-1.64.56-2.44.55H1.01c-.23 1.4.08 3.22 1.19 4.53 1 1.16 2.52 1.75 4.52 1.75 4.28 0 7.78-1.85 9.47-5.8.65.01 2.1.04 2.85-1.33l.04-.08-.21-.12-.03-.02z"/></svg>
+          </div>
+          <span class="tech-badge__name">Docker</span>
+        </div>
+
+        <div class="tech-badge" data-category="devops" id="tech-terraform">
+          <div class="tech-badge__icon">
+            <svg viewBox="0 0 24 24" fill="#7B42BC"><path d="M1 3.5l7 4v8l-7-4v-8zm8 4l7-4v8l-7 4v-8zm8-4l7 4v8l-7-4v-8zm-8 13l7-4v8l-7 4v-8z"/></svg>
+          </div>
+          <span class="tech-badge__name">Terraform</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       CONSULTATION BOOKING CTA
+       ════════════════════════════════════════════════════════ -->
+  <section class="section cta-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label reveal" data-i18n="cta.label">Let's Talk</div>
+        <h2 class="section-title reveal reveal-delay-1" data-i18n="cta.title">
+          Ready to <span class="text-gradient">Transform</span> Your Business?
+        </h2>
+        <p class="section-description reveal reveal-delay-2" data-i18n="cta.desc">
+          Book a free consultation with our team. We'll discuss your challenges, 
+          map out a strategy, and show you what's possible.
+        </p>
+      </div>
+
+      <div class="cta-grid">
+        <!-- Form -->
+        <form class="cta-form glass-card reveal reveal-delay-2" id="consultation-form">
+          <div class="cta-form__row">
+            <div class="form-group">
+              <label class="form-label" for="form-name" data-i18n="form.name">Full Name</label>
+              <input class="form-input" type="text" id="form-name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="form-email" data-i18n="form.email">Email Address</label>
+              <input class="form-input" type="email" id="form-email" placeholder="john@company.com" required>
+            </div>
+          </div>
+
+          <div class="cta-form__row">
+            <div class="form-group">
+              <label class="form-label" for="form-company" data-i18n="form.company">Company</label>
+              <input class="form-input" type="text" id="form-company" placeholder="Acme Corp">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="form-service" data-i18n="form.service">Service Interest</label>
+              <select class="form-select" id="form-service">
+                <option value="" data-i18n="form.service.default">Select a service...</option>
+                <option value="devops" data-i18n="form.service.devops">DevOps & Cloud</option>
+                <option value="web" data-i18n="form.service.web">Web Development</option>
+                <option value="ai" data-i18n="form.service.ai">Data Science & AI</option>
+                <option value="design" data-i18n="form.service.design">Graphic Design</option>
+                <option value="managed" data-i18n="form.service.managed">Managed Services</option>
+                <option value="consulting" data-i18n="form.service.consulting">Strategy Consulting</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="form-message" data-i18n="form.message">Project Details</label>
+            <textarea class="form-textarea" id="form-message" placeholder="Tell us about your project, challenges, and goals..." rows="5"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--lg" id="form-submit-btn">
+            <span data-i18n="form.submit">Send Message</span>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+
+        <!-- Contact Info -->
+        <div class="cta-info reveal reveal-delay-3">
+          <div class="cta-info__item">
+            <div class="cta-info__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="cta-info__label" data-i18n="contact.email.label">Email Us</div>
+              <div class="cta-info__value">hello@ahmadco.tech</div>
+            </div>
+          </div>
+
+          <div class="cta-info__item">
+            <div class="cta-info__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="cta-info__label" data-i18n="contact.phone.label">Call Us</div>
+              <div class="cta-info__value">+971 50 123 4567</div>
+            </div>
+          </div>
+
+          <div class="cta-info__item">
+            <div class="cta-info__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="cta-info__label" data-i18n="contact.office.label">Office</div>
+              <div class="cta-info__value" data-i18n="contact.office.value">Dubai, United Arab Emirates</div>
+            </div>
+          </div>
+
+          <div class="cta-info__item">
+            <div class="cta-info__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="cta-info__label" data-i18n="contact.hours.label">Business Hours</div>
+              <div class="cta-info__value" data-i18n="contact.hours.value">Sun – Thu, 9:00 AM – 6:00 PM (GST)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════════════════ -->
+  <footer class="footer" id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Brand Column -->
+        <div>
+          <a href="#" class="nav__logo" style="margin-bottom: var(--space-2); display: inline-flex;">
+            AHMAD & CO<span class="nav__logo-dot"></span>
+          </a>
+          <p class="footer__brand-desc" data-i18n="footer.brand">
+            Enterprise-grade digital transformation. Security-first cloud solutions, 
+            AI-powered innovation, and scalable web platforms for the modern enterprise.
+          </p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social" aria-label="LinkedIn" id="social-linkedin">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="Twitter/X" id="social-twitter">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="footer__social" aria-label="GitHub" id="social-github">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Services Column -->
+        <div>
+          <h4 class="footer__heading" data-i18n="footer.services">Services</h4>
+          <a href="#services" class="footer__link" data-i18n="footer.services.devops">DevOps & Cloud</a>
+          <a href="#services" class="footer__link" data-i18n="footer.services.web">Web Development</a>
+          <a href="#services" class="footer__link" data-i18n="footer.services.ai">Data Science & AI</a>
+          <a href="#services" class="footer__link" data-i18n="footer.services.design">Graphic Design</a>
+          <a href="#services" class="footer__link" data-i18n="footer.services.managed">Managed Services</a>
+        </div>
+
+        <!-- Resources Column -->
+        <div>
+          <h4 class="footer__heading" data-i18n="footer.resources">Resources</h4>
+          <a href="#case-studies" class="footer__link" data-i18n="footer.resources.cases">Case Studies</a>
+          <a href="#tech-stack" class="footer__link" data-i18n="footer.resources.tech">Tech Stack</a>
+          <a href="#" class="footer__link" data-i18n="footer.resources.blog">Blog</a>
+          <a href="#" class="footer__link" data-i18n="footer.resources.docs">Documentation</a>
+          <a href="#" class="footer__link" data-i18n="footer.resources.status">System Status</a>
+        </div>
+
+        <!-- Connect Column -->
+        <div>
+          <h4 class="footer__heading" data-i18n="footer.connect">Connect</h4>
+          <a href="#contact" class="footer__link" data-i18n="footer.connect.consult">Book Consultation</a>
+          <a href="#" class="footer__link" data-i18n="footer.connect.portal">Client Portal</a>
+          <a href="#" class="footer__link" data-i18n="footer.connect.careers">Careers</a>
+          <a href="#" class="footer__link" data-i18n="footer.connect.partner">Partner With Us</a>
+
+          <!-- Language Switcher -->
+          <div class="lang-switch" style="margin-top: var(--space-4);">
+            <button class="lang-switch__btn active" id="lang-en" data-i18n-switch="en">EN</button>
+            <button class="lang-switch__btn" id="lang-ar" data-i18n-switch="ar">عربي</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer__bottom">
+        <div class="footer__copy" data-i18n="footer.copy">
+          © 2026 AHMAD & CO. All rights reserved.
+        </div>
+        <div class="footer__legal">
+          <a href="#" data-i18n="footer.privacy">Privacy Policy</a>
+          <a href="#" data-i18n="footer.terms">Terms of Service</a>
+          <a href="#" data-i18n="footer.cookies">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ── Scripts ──────────────────────────────────────────── -->
+  <script src="js/particles.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+# Git
+.git
+.gitignore
+
+# GitHub Actions
+.github
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Docs
+README.md
+LICENSE
+*.md

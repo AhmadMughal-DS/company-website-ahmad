@@ -1,0 +1,177 @@
+/* ============================================================
+   ANIMATIONS — animations.css
+   Keyframes and scroll-triggered animation classes
+   ============================================================ */
+
+/* ── Keyframes ─────────────────────────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px currentColor; }
+  50% { opacity: 0.5; box-shadow: 0 0 16px currentColor; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(-5px) rotate(-1deg); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-ring {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes scan-line {
+  0% { top: -2px; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes dash-animate {
+  to { stroke-dashoffset: -1000; }
+}
+
+/* ── Scroll Reveal Animations ──────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-slower) var(--ease-out),
+              transform var(--duration-slower) var(--ease-out);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays for staggered reveal */
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+.reveal-delay-5 { transition-delay: 500ms; }
+.reveal-delay-6 { transition-delay: 600ms; }
+
+/* Reveal from left */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity var(--duration-slower) var(--ease-out),
+              transform var(--duration-slower) var(--ease-out);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Reveal from right */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity var(--duration-slower) var(--ease-out),
+              transform var(--duration-slower) var(--ease-out);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Reveal Scale */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity var(--duration-slower) var(--ease-out),
+              transform var(--duration-slower) var(--ease-out);
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Button Hover Glow ─────────────────────────────────────── */
+.btn--primary {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* ── Shield Scan Line ──────────────────────────────────────── */
+.shield-scan {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--success), transparent);
+  border-radius: var(--radius-full);
+  animation: scan-line 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ── Particle Canvas ───────────────────────────────────────── */
+#particles-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ── Logo Pulse on scroll ──────────────────────────────────── */
+.nav.scrolled .nav__logo-dot {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+/* ── Tech badge float ──────────────────────────────────────── */
+.tech-badge:nth-child(odd) {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.tech-badge:nth-child(even) {
+  animation: float-slow 8s ease-in-out infinite 1s;
+}
+
+/* ── Hover line under nav links ────────────────────────────── */
+.nav__link {
+  position: relative;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-hero);
+  border-radius: var(--radius-full);
+  transition: all var(--duration-normal) var(--ease-out);
+  transform: translateX(-50%);
+}
+
+.nav__link:hover::after,
+.nav__link.active::after {
+  width: 60%;
+}

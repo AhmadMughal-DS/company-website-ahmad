@@ -1,0 +1,12 @@
+/* ============================================================
+   MASTER STYLESHEET — index.css
+   Imports all CSS modules in correct order
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@import url('./variables.css');
+@import url('./base.css');
+@import url('./components.css');
+@import url('./layout.css');
+@import url('./animations.css');
