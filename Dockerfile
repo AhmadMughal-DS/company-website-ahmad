@@ -19,10 +19,11 @@ COPY . /usr/share/nginx/html/
 RUN rm -f /usr/share/nginx/html/Dockerfile \
           /usr/share/nginx/html/docker-compose.yml \
           /usr/share/nginx/html/.dockerignore \
+          /usr/share/nginx/html/.env \
           /usr/share/nginx/html/README.md
 
 # Custom nginx config for SPA + performance
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY website.conf /etc/nginx/conf.d/default.conf
 
 # Expose port
 EXPOSE 80

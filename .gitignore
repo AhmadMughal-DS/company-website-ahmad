@@ -1,0 +1,25 @@
+# AHMAD & CO. — .gitignore
+
+# Environment secrets (KABHI push mat karo!)
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Backend leads data (private)
+backend/data/leads.json
+
+# Node modules
+node_modules/
+backend/node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker override
+docker-compose.override.yml

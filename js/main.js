@@ -109,36 +109,95 @@ function initTechFilter() {
   });
 }
 
-/* ── Form Handling ───────────────────────────────────────── */
+/* ── Form Handling — Real Backend API ────────────────────── */
 function initFormHandling() {
   const form = document.getElementById('consultation-form');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const btn = form.querySelector('.btn--primary');
-    const originalText = btn.innerHTML;
+    const btn       = form.querySelector('#form-submit-btn');
+    const btnSpan   = btn.querySelector('span');
+    const formWrap  = form;
+    const successEl = document.getElementById('form-success');
 
-    // Simulate submission
-    btn.innerHTML = `
-      <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-        <polyline points="22 4 12 14.01 9 11.01"/>
-      </svg>
-      Message Sent!
-    `;
-    btn.style.background = 'var(--success)';
+    // Collect form data
+    const data = {
+      name:    document.getElementById('form-name')?.value?.trim(),
+      email:   document.getElementById('form-email')?.value?.trim(),
+      company: document.getElementById('form-company')?.value?.trim(),
+      phone:   document.getElementById('form-phone')?.value?.trim(),
+      country: document.getElementById('form-country')?.value?.trim(),
+      service: document.getElementById('form-service')?.value,
+      message: document.getElementById('form-message')?.value?.trim()
+    };
+
+    if (!data.name || !data.email || !data.message) {
+      showFormToast('Please fill in all required fields.', 'error');
+      return;
+    }
+
+    // Loading state
     btn.disabled = true;
+    btnSpan.textContent = 'Sending...';
+    btn.style.opacity = '0.7';
 
-    setTimeout(() => {
-      btn.innerHTML = originalText;
-      btn.style.background = '';
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Show success state
+        form.style.display = 'none';
+        if (successEl) {
+          successEl.classList.add('show');
+        }
+        console.log('✅ Lead submitted successfully');
+      } else {
+        showFormToast(result.message || 'Something went wrong. Please try again.', 'error');
+        btn.disabled = false;
+        btnSpan.textContent = 'Send Message';
+        btn.style.opacity = '';
+      }
+    } catch (err) {
+      // Fallback: if backend is unreachable, show WhatsApp option
+      console.warn('Backend unreachable, showing WhatsApp fallback');
+      showFormToast('Connection issue. Please reach us via WhatsApp below! ⬇️', 'warning');
       btn.disabled = false;
-      form.reset();
-    }, 3000);
+      btnSpan.textContent = 'Send Message';
+      btn.style.opacity = '';
+    }
   });
 }
+
+/* ── Toast Notification ───────────────────────────────────── */
+function showFormToast(message, type = 'info') {
+  const existing = document.getElementById('form-toast');
+  if (existing) existing.remove();
+
+  const color = type === 'error' ? '#ff4757' : type === 'warning' ? '#f0a500' : '#00c896';
+
+  const toast = document.createElement('div');
+  toast.id = 'form-toast';
+  toast.style.cssText = `
+    position: fixed; bottom: 120px; right: 24px; z-index: 600;
+    padding: 14px 20px; border-radius: 12px; max-width: 320px;
+    background: rgba(7,13,26,0.98); border: 1px solid ${color};
+    color: #f0ece0; font-size: 14px; line-height: 1.5;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5); animation: slideUp 0.3s ease;
+  `;
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 5000);
+}
+
+
 
 /* ── Smooth Scroll for Anchor Links ──────────────────────── */
 function initSmoothScroll() {

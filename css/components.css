@@ -37,32 +37,34 @@
   opacity: 1;
 }
 
-/* Primary Button */
+/* Primary Button — Royal Gold */
 .btn--primary {
-  background: var(--gradient-hero);
-  color: #fff;
+  background: var(--gradient-gold);
+  color: var(--text-inverse);
   border: none;
-  box-shadow: var(--shadow-glow-blue);
+  box-shadow: var(--shadow-glow-gold);
+  font-weight: var(--weight-bold);
 }
 
 .btn--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 40px rgba(var(--accent-primary-rgb), 0.35);
-  color: #fff;
+  box-shadow: 0 8px 40px rgba(201,168,76,0.4);
+  color: var(--text-inverse);
 }
 
 /* Outline Button */
 .btn--outline {
   background: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--border-glass-hover);
+  color: var(--gold);
+  border: 1px solid var(--border-gold);
 }
 
 .btn--outline:hover {
-  background: var(--surface-glass);
-  border-color: var(--accent-primary);
-  color: var(--accent-hover);
+  background: var(--gold-subtle);
+  border-color: var(--border-gold-hover);
+  color: var(--gold-light);
   transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-gold);
 }
 
 /* Ghost Button */
@@ -101,7 +103,7 @@
   background: var(--surface-glass);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--border-gold);
   border-radius: var(--radius-lg);
   padding: var(--space-8);
   transition: all var(--duration-normal) var(--ease-out);
@@ -121,9 +123,9 @@
 
 .glass-card:hover {
   background: var(--surface-glass-hover);
-  border-color: var(--border-glass-hover);
+  border-color: var(--border-gold-hover);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-gold);
 }
 
 /* ── Service Card ──────────────────────────────────────────── */
@@ -234,11 +236,11 @@
   flex-shrink: 0;
 }
 
-/* Card Color Variants */
-.service-card--devops { --card-glow: rgba(59, 130, 246, 0.1); --card-accent: #3b82f6; --card-icon-bg: rgba(59, 130, 246, 0.1); }
-.service-card--web { --card-glow: rgba(16, 185, 129, 0.1); --card-accent: #10b981; --card-icon-bg: rgba(16, 185, 129, 0.1); }
-.service-card--ai { --card-glow: rgba(139, 92, 246, 0.1); --card-accent: #8b5cf6; --card-icon-bg: rgba(139, 92, 246, 0.1); }
-.service-card--design { --card-glow: rgba(245, 158, 11, 0.1); --card-accent: #f59e0b; --card-icon-bg: rgba(245, 158, 11, 0.1); }
+/* Card Color Variants — Gold-infused */
+.service-card--devops { --card-glow: rgba(201,168,76,0.12); --card-accent: var(--gold); --card-icon-bg: rgba(201,168,76,0.1); }
+.service-card--web    { --card-glow: rgba(0,200,150,0.10);  --card-accent: var(--emerald); --card-icon-bg: rgba(0,200,150,0.08); }
+.service-card--ai     { --card-glow: rgba(26,107,255,0.10); --card-accent: var(--blue-light); --card-icon-bg: rgba(26,107,255,0.08); }
+.service-card--design { --card-glow: rgba(201,168,76,0.12); --card-accent: var(--gold-light); --card-icon-bg: rgba(201,168,76,0.1); }
 
 /* ── Case Study Card ───────────────────────────────────────── */
 .case-card {
@@ -309,7 +311,10 @@
 .case-card__metric-value {
   font-size: var(--text-xl);
   font-weight: var(--weight-bold);
-  color: var(--accent-primary);
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .case-card__metric-label {
@@ -370,7 +375,10 @@
 .stat__value {
   font-size: var(--text-3xl);
   font-weight: var(--weight-extrabold);
-  color: var(--text-primary);
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   line-height: 1;
   margin-bottom: var(--space-2);
 }
@@ -413,9 +421,9 @@
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgba(var(--accent-primary-rgb), 0.15);
-  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+  background: rgba(201,168,76,0.03);
 }
 
 .form-input::placeholder,
@@ -517,9 +525,10 @@
 }
 
 .tab-filter.active {
-  color: var(--accent-primary);
-  border-color: var(--accent-primary);
-  background: var(--accent-subtle);
+  color: var(--gold);
+  border-color: var(--border-gold);
+  background: var(--gold-subtle);
+  box-shadow: 0 0 12px rgba(201,168,76,0.15);
 }
 
 /* ── Team Member Card ──────────────────────────────────────── */
@@ -579,7 +588,7 @@
   margin: 0 auto var(--space-6);
   border-radius: 50%;
   padding: 3px;
-  background: var(--gradient-hero);
+  background: var(--gradient-gold);
   position: relative;
   z-index: 1;
 }
@@ -657,7 +666,7 @@
   height: 16px;
 }
 
-/* Team Card Color Variants */
-.team-card--blue { --team-glow: rgba(59, 130, 246, 0.08); --team-accent: #3b82f6; }
-.team-card--purple { --team-glow: rgba(139, 92, 246, 0.08); --team-accent: #8b5cf6; }
-.team-card--green { --team-glow: rgba(16, 185, 129, 0.08); --team-accent: #10b981; }
+/* Team Card Color Variants — Gold-infused */
+.team-card--blue   { --team-glow: rgba(201,168,76,0.08); --team-accent: var(--gold); }
+.team-card--purple { --team-glow: rgba(26,107,255,0.08); --team-accent: var(--blue-light); }
+.team-card--green  { --team-glow: rgba(0,200,150,0.08);  --team-accent: var(--emerald); }

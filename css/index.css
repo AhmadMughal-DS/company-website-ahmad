@@ -1,9 +1,10 @@
 /* ============================================================
    MASTER STYLESHEET — index.css
-   Imports all CSS modules in correct order
+   AHMAD & CO. — Middle East Luxury Design System
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+/* Tajawal font is now loaded in base.css via @import */
+/* Keeping Inter as fallback via Tajawal's stack */
 
 @import url('./variables.css');
 @import url('./base.css');
