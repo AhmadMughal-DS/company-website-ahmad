@@ -2,8 +2,8 @@
 // ============================================================
 
 (function () {
-  // Default WhatsApp number (update with real number)
-  const WHATSAPP_NUMBER = '971501234567'; // UAE format without +
+  // WhatsApp number (Pakistan)
+  const WHATSAPP_NUMBER = '923226510517'; // Pakistan format without +
 
   function getWhatsAppMessage() {
     const page = window.location.href;

@@ -1,0 +1,16 @@
+jab whatsapp pr jaye tu +923226510517 yeh number pr jaye 
+Run `npm audit` for details.
+PS E:\Ahmad-Company\website\backend> node server.js
+✅ AHMAD & CO. Backend running on port 3001
+📧 Notify email: hello@ahmadco.tech
+above cmd pr show hua hai 
+notify email ahmad.dstech@gmail.com correct hai 
+Muhamamd Ahmad ky links 
+https://github.com/AhmadMughal-DS
+https://www.linkedin.com/in/ahmadai/
+jawad 
+https://www.linkedin.com/in/jawad-idrees/
+https://github.com/Jawad-Idrees
+khizar 
+https://www.linkedin.com/in/khizar-ahmed-904019250
+https://github.com/Khizar20
