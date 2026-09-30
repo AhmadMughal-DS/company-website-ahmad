@@ -11,7 +11,7 @@ services:
       dockerfile: Dockerfile
     container_name: ahmadco-website
     ports:
-      - "8080:80"
+      - "8002:80"
     depends_on:
       backend:
         condition: service_healthy
@@ -33,12 +33,12 @@ services:
       dockerfile: Dockerfile
     container_name: ahmadco-backend
     ports:
-      - "3001:3001"
+      - "8001:3001"
     env_file:
       - .env
     environment:
       - PORT=3001
-      - FRONTEND_URL=http://localhost:8080
+      - FRONTEND_URL=http://localhost:8002
       - EMAIL_USER=${EMAIL_USER:-ahmad.dstech@gmail.com}
       - EMAIL_PASS=${EMAIL_PASS:-}
       - NOTIFY_EMAIL=${NOTIFY_EMAIL:-ahmad.dstech@gmail.com}

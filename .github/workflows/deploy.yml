@@ -110,8 +110,8 @@ jobs:
             org.opencontainers.image.vendor=AHMAD & CO.
             org.opencontainers.image.url=https://ahmadco.tech
 
-      - name: Build and push Docker image
-        id: build
+      - name: Build and push Frontend Docker image
+        id: build-frontend
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -123,13 +123,26 @@ jobs:
           provenance: true
           sbom: true
 
-      - name: Image pushed summary
+      - name: Build and push Backend Docker image
+        id: build-backend
+        uses: docker/build-push-action@v6
+        with:
+          context: ./backend
+          push: ${{ github.event_name == 'push' }}
+          tags: |
+            docker.io/${{ secrets.DOCKER_USERNAME }}/ahmadco-backend:latest
+            docker.io/${{ secrets.DOCKER_USERNAME }}/ahmadco-backend:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          provenance: true
+          sbom: true
+
+      - name: Images pushed summary
         if: github.event_name == 'push'
         run: |
-          echo "📦 Docker Hub image pushed:"
-          echo "   Repository : docker.io/${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}"
-          echo "   Tags       : ${{ steps.meta.outputs.tags }}"
-          echo "   Digest     : ${{ steps.build.outputs.digest }}"
+          echo "📦 Docker Hub images pushed successfully:"
+          echo "   Frontend : docker.io/${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest"
+          echo "   Backend  : docker.io/${{ secrets.DOCKER_USERNAME }}/ahmadco-backend:latest"
 
   # ──────────────────────────────────────────────────────────
   # Job 3 — Test the container locally
@@ -234,60 +247,49 @@ jobs:
                 --password-stdin
             echo "✅ Docker Hub authenticated"
 
-            # ── Pull the latest image ────────────────────────
-            IMAGE="docker.io/${{ secrets.DOCKER_USERNAME }}/ahmadco-website:latest"
-            docker pull "$IMAGE"
-            echo "✅ Image pulled: $IMAGE"
+            # ── Create shared docker network ─────────────────
+            docker network create ahmadco-net 2>/dev/null || true
 
-            # ── Zero-downtime blue-green swap ────────────────
-            # Start NEW container (different name, different port)
-            docker stop  ahmadco-website-new 2>/dev/null || true
-            docker rm    ahmadco-website-new 2>/dev/null || true
-
+            # ── Deploy Backend (Port 8001) ───────────────────
+            BACKEND_IMAGE="docker.io/${{ secrets.DOCKER_USERNAME }}/ahmadco-backend:latest"
+            echo "📦 Pulling Backend: $BACKEND_IMAGE"
+            docker pull "$BACKEND_IMAGE"
+            docker stop ahmadco-backend 2>/dev/null || true
+            docker rm   ahmadco-backend 2>/dev/null || true
             docker run -d \
-              --name ahmadco-website-new \
+              --name ahmadco-backend \
+              --network ahmadco-net \
+              --network-alias backend \
               --restart unless-stopped \
-              --read-only \
-              --tmpfs /tmp \
-              --tmpfs /var/cache/nginx \
-              --tmpfs /var/run \
-              -p 8081:80 \
-              "$IMAGE"
+              -p 8001:3001 \
+              -v leads_data:/app/data \
+              "$BACKEND_IMAGE"
+            echo "✅ Backend container deployed on port 8001"
 
-            # ── Health check on new container ─────────────────
-            sleep 6
-            STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8081 || echo "000")
-            echo "📡 New container health: $STATUS"
-
-            if [ "$STATUS" != "200" ]; then
-              echo "❌ New container unhealthy — aborting! Old site untouched."
-              docker rm -f ahmadco-website-new
-              exit 1
-            fi
-            echo "✅ New container healthy"
-
-            # ── Swap: stop old, rename new ────────────────────
-            docker stop  ahmadco-website 2>/dev/null || true
-            docker rm    ahmadco-website 2>/dev/null || true
-            docker rename ahmadco-website-new ahmadco-website
-
-            # Re-expose on port 80 (stop temp port 8081 and re-run on 80)
-            docker stop  ahmadco-website 2>/dev/null || true
-            docker rm    ahmadco-website 2>/dev/null || true
+            # ── Deploy Frontend (Port 8002) ──────────────────
+            FRONTEND_IMAGE="docker.io/${{ secrets.DOCKER_USERNAME }}/ahmadco-website:latest"
+            echo "📦 Pulling Frontend: $FRONTEND_IMAGE"
+            docker pull "$FRONTEND_IMAGE"
+            docker stop ahmadco-website 2>/dev/null || true
+            docker rm   ahmadco-website 2>/dev/null || true
             docker run -d \
               --name ahmadco-website \
+              --network ahmadco-net \
               --restart unless-stopped \
               --read-only \
               --tmpfs /tmp \
               --tmpfs /var/cache/nginx \
               --tmpfs /var/run \
-              -p 80:80 \
-              "$IMAGE"
+              -p 8002:80 \
+              "$FRONTEND_IMAGE"
+            echo "✅ Frontend container deployed on port 8002"
 
-            # ── Final health check on port 80 ─────────────────
+            # ── Health checks on ports 8001 and 8002 ──────────
             sleep 4
-            FINAL=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:80 || echo "000")
-            echo "📡 Final site health (port 80): $FINAL"
+            FRONTEND_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8002 || echo "000")
+            BACKEND_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8001/ahmadcompany/health || echo "000")
+            echo "📡 Frontend health (port 8002): $FRONTEND_STATUS"
+            echo "📡 Backend health (port 8001): $BACKEND_STATUS"
 
             # ── Logout & cleanup ──────────────────────────────
             docker logout docker.io
@@ -295,8 +297,9 @@ jobs:
 
             echo ""
             echo "🎉 ═══════════════════════════════════════"
-            echo "   AHMAD & CO. deployed successfully!"
-            echo "   Site status : $FINAL"
-            echo "   Image       : $IMAGE"
-            echo "   Time        : $(date)"
+            echo "   CLOUDREACH / AHMAD & CO. deployed!"
+            echo "   Backend port  : 8001 (Status: $BACKEND_STATUS)"
+            echo "   Frontend port : 8002 (Status: $FRONTEND_STATUS)"
+            echo "   Host Nginx    : Port 80 untouched"
+            echo "   Time          : $(date)"
             echo "═══════════════════════════════════════════"
