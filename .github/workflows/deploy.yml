@@ -35,12 +35,12 @@ jobs:
       security-events: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.AHMAD_PAT }}   # Private repo access
 
       - name: Detect secrets in codebase (TruffleHog)
-        uses: trufflesecurity/trufflehog@d19b4f7d3c3ece0e79e8ecf6b93be02f58d2a6e5 # v3.82.6
+        uses: trufflesecurity/trufflehog@main
         with:
           path: ./
           base: ${{ github.event.repository.default_branch }}
@@ -80,16 +80,16 @@ jobs:
       image-full: ${{ env.REGISTRY }}/${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.AHMAD_PAT }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # v3.10.0
+        uses: docker/setup-buildx-action@v3
 
       - name: Login to Docker Hub
         if: github.event_name == 'push'
-        uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
+        uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -97,7 +97,7 @@ jobs:
 
       - name: Extract image metadata
         id: meta
-        uses: docker/metadata-action@902fa8ec7d6ecbea8a986b16891c29b4b5f4af0a # v5.7.0
+        uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}
           tags: |
@@ -112,7 +112,7 @@ jobs:
 
       - name: Build and push Docker image
         id: build
-        uses: docker/build-push-action@14487ce63c7a62a4a324b0bfb37086795e31c6c1 # v6.16.0
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: ${{ github.event_name == 'push' }}
@@ -140,7 +140,7 @@ jobs:
     needs: build
     steps:
       - name: Checkout code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.AHMAD_PAT }}
 
@@ -209,7 +209,7 @@ jobs:
     if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
     steps:
       - name: Deploy via SSH to VM
-        uses: appleboy/ssh-action@2bbe67b1952e4571b3a9ea91c6d1ac12c47ff3f5 # v1.2.0
+        uses: appleboy/ssh-action@v1.2.0
         with:
           host:     ${{ secrets.VM_IP }}
           username: ${{ secrets.VM_USERNAME }}
