@@ -50,7 +50,7 @@ jobs:
       - name: Block committed .env or secret files
         run: |
           echo "🔍 Scanning for committed secrets..."
-          if git ls-files | grep -E "^\.env$|^\.env\.|^secrets/" ; then
+          if git ls-files | grep -v "^\.env\.example$" | grep -E "^\.env$|^\.env\.|^secrets/" ; then
             echo "❌ CRITICAL: Secret files found in repository!"
             exit 1
           fi
