@@ -6,8 +6,9 @@
 /* Tajawal font is now loaded in base.css via @import */
 /* Keeping Inter as fallback via Tajawal's stack */
 
-@import url('./variables.css');
-@import url('./base.css');
-@import url('./components.css');
-@import url('./layout.css');
-@import url('./animations.css');
+@import url('./variables.css?v=3.2.0');
+@import url('./base.css?v=3.2.0');
+@import url('./components.css?v=3.2.0');
+@import url('./layout.css?v=3.2.0');
+@import url('./animations.css?v=3.2.0');
+

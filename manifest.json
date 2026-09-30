@@ -1,6 +1,6 @@
 {
-  "name": "AHMAD & CO.",
-  "short_name": "AHMAD CO.",
+  "name": "CLOUDREACH",
+  "short_name": "CLOUDREACH",
   "description": "Enterprise-grade digital transformation — DevOps, Cloud, AI & Web Development. Based in Dubai, UAE.",
   "start_url": "/",
   "display": "standalone",
@@ -31,7 +31,7 @@
       "sizes": "1200x630",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "AHMAD & CO. Homepage"
+      "label": "CLOUDREACH Homepage"
     }
   ],
   "related_applications": [],

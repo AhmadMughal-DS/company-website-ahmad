@@ -1,6 +1,7 @@
 /* ============================================================
    PARTICLES — particles.js
    Canvas-based abstract constellation background for hero
+   Gold × Cyan × Sapphire Blue Micro-Constellation
    ============================================================ */
 
 class ParticleConstellation {
@@ -10,16 +11,17 @@ class ParticleConstellation {
 
     this.ctx = this.canvas.getContext('2d');
     this.particles = [];
-    this.mouse = { x: null, y: null, radius: 150 };
+    this.mouse = { x: null, y: null, radius: 160 };
     this.animationId = null;
-    this.particleCount = 80;
+    this.particleCount = 70;
     this.connectionDistance = 120;
-    this.maxSpeed = 0.4;
+    this.maxSpeed = 0.35;
 
     this.colors = [
-      'rgba(59, 130, 246, ',   // blue
-      'rgba(139, 92, 246, ',   // purple
-      'rgba(96, 165, 250, ',   // light blue
+      'rgba(212, 175, 55, ',    // Sovereign Gold
+      'rgba(56, 189, 248, ',    // Cyber Cyan
+      'rgba(37, 99, 235, ',     // Sapphire Blue
+      'rgba(16, 185, 129, ',    // Emerald Mint
     ];
 
     this.init();
@@ -33,20 +35,22 @@ class ParticleConstellation {
   }
 
   resize() {
-    const rect = this.canvas.parentElement.getBoundingClientRect();
+    const parent = this.canvas.parentElement;
+    if (!parent) return;
+    const rect = parent.getBoundingClientRect();
     this.canvas.width = rect.width;
     this.canvas.height = rect.height;
 
     // Adjust particle count for mobile
     if (window.innerWidth < 768) {
-      this.particleCount = 40;
-      this.connectionDistance = 80;
+      this.particleCount = 35;
+      this.connectionDistance = 75;
     } else if (window.innerWidth < 1200) {
-      this.particleCount = 60;
+      this.particleCount = 55;
       this.connectionDistance = 100;
     } else {
-      this.particleCount = 80;
-      this.connectionDistance = 120;
+      this.particleCount = 75;
+      this.connectionDistance = 125;
     }
   }
 
@@ -58,9 +62,9 @@ class ParticleConstellation {
         y: Math.random() * this.canvas.height,
         vx: (Math.random() - 0.5) * this.maxSpeed,
         vy: (Math.random() - 0.5) * this.maxSpeed,
-        radius: Math.random() * 2 + 0.5,
+        radius: Math.random() * 2 + 0.6,
         color: this.colors[Math.floor(Math.random() * this.colors.length)],
-        opacity: Math.random() * 0.5 + 0.2,
+        opacity: Math.random() * 0.45 + 0.25,
       });
     }
   }
@@ -71,34 +75,35 @@ class ParticleConstellation {
       this.createParticles();
     });
 
-    this.canvas.parentElement.addEventListener('mousemove', (e) => {
-      const rect = this.canvas.getBoundingClientRect();
-      this.mouse.x = e.clientX - rect.left;
-      this.mouse.y = e.clientY - rect.top;
-    });
+    if (this.canvas.parentElement) {
+      this.canvas.parentElement.addEventListener('mousemove', (e) => {
+        const rect = this.canvas.getBoundingClientRect();
+        this.mouse.x = e.clientX - rect.left;
+        this.mouse.y = e.clientY - rect.top;
+      });
 
-    this.canvas.parentElement.addEventListener('mouseleave', () => {
-      this.mouse.x = null;
-      this.mouse.y = null;
-    });
+      this.canvas.parentElement.addEventListener('mouseleave', () => {
+        this.mouse.x = null;
+        this.mouse.y = null;
+      });
+    }
   }
 
   animate() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    // Update and draw particles
     for (let i = 0; i < this.particles.length; i++) {
       const p = this.particles[i];
 
-      // Mouse interaction — gentle push
+      // Mouse push
       if (this.mouse.x !== null && this.mouse.y !== null) {
         const dx = p.x - this.mouse.x;
         const dy = p.y - this.mouse.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < this.mouse.radius) {
           const force = (this.mouse.radius - dist) / this.mouse.radius;
-          p.vx += (dx / dist) * force * 0.02;
-          p.vy += (dy / dist) * force * 0.02;
+          p.vx += (dx / dist) * force * 0.025;
+          p.vy += (dy / dist) * force * 0.025;
         }
       }
 
@@ -106,11 +111,9 @@ class ParticleConstellation {
       p.vx *= 0.99;
       p.vy *= 0.99;
 
-      // Move
       p.x += p.vx;
       p.y += p.vy;
 
-      // Wrap around edges
       if (p.x < -10) p.x = this.canvas.width + 10;
       if (p.x > this.canvas.width + 10) p.x = -10;
       if (p.y < -10) p.y = this.canvas.height + 10;
@@ -122,7 +125,7 @@ class ParticleConstellation {
       this.ctx.fillStyle = p.color + p.opacity + ')';
       this.ctx.fill();
 
-      // Draw connections
+      // Connections
       for (let j = i + 1; j < this.particles.length; j++) {
         const p2 = this.particles[j];
         const dx = p.x - p2.x;
@@ -130,12 +133,12 @@ class ParticleConstellation {
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < this.connectionDistance) {
-          const opacity = (1 - dist / this.connectionDistance) * 0.15;
+          const opacity = (1 - dist / this.connectionDistance) * 0.16;
           this.ctx.beginPath();
           this.ctx.moveTo(p.x, p.y);
           this.ctx.lineTo(p2.x, p2.y);
-          this.ctx.strokeStyle = `rgba(59, 130, 246, ${opacity})`;
-          this.ctx.lineWidth = 0.5;
+          this.ctx.strokeStyle = `rgba(212, 175, 55, ${opacity})`;
+          this.ctx.lineWidth = 0.6;
           this.ctx.stroke();
         }
       }

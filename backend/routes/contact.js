@@ -1,7 +1,7 @@
 // ============================================================
-// AHMAD & CO. — Contact Route
-// POST /api/contact  — Submit lead & send email notification
-// GET  /api/contact/leads — Admin: list all leads (token-protected)
+// CLOUDREACH — Contact Route
+// POST /ahmadcompany/contact  — Submit lead & send email notification
+// GET  /ahmadcompany/contact/leads — Admin: list all leads (token-protected)
 // Security: input validation, length limits, HTML sanitization
 // ============================================================
 
@@ -117,14 +117,14 @@ async function sendNotification(data) {
 
   // All user data is already HTML-escaped at this point
   const mailOptions = {
-    from: `"AHMAD & CO. Website" <${process.env.EMAIL_USER}>`,
+    from: `"CLOUDREACH Website" <${process.env.EMAIL_USER}>`,
     to: process.env.NOTIFY_EMAIL || 'ahmad.dstech@gmail.com',
     replyTo: data.email,  // Allow direct reply to client
     subject: `🔔 New Lead: ${data.name} — ${data.service || 'General Inquiry'}`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; background: #0d1628; color: #f0ece0; padding: 32px; border-radius: 12px; border: 1px solid #C9A84C33;">
         <div style="border-bottom: 2px solid #C9A84C; padding-bottom: 16px; margin-bottom: 24px;">
-          <h1 style="color: #C9A84C; margin: 0; font-size: 24px;">AHMAD &amp; CO.</h1>
+          <h1 style="color: #C9A84C; margin: 0; font-size: 24px;">CLOUDREACH</h1>
           <p style="color: #a8a090; margin: 4px 0 0;">New consultation request received</p>
         </div>
         
@@ -160,7 +160,7 @@ async function sendNotification(data) {
   console.log(`📧 Notification sent → ${data.name} <${data.email}>`);
 }
 
-// ── POST /api/contact ─────────────────────────────────────────
+// ── POST /ahmadcompany/contact ─────────────────────────────────
 router.post('/', async (req, res) => {
   try {
     const { name, email, company, phone, country, service, message } = req.body;
@@ -205,7 +205,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// ── GET /api/contact/leads — Admin: list all leads ────────────
+// ── GET /ahmadcompany/contact/leads — Admin: list all leads ────
 router.get('/leads', (req, res) => {
   // Token must be sent in header (not query param — avoids URL logging)
   const token = req.headers['x-admin-token'];

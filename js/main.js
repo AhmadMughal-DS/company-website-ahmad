@@ -1,6 +1,6 @@
 /* ============================================================
    MAIN — main.js
-   Application initialization, navigation, form handling
+   Application initialization, navigation, form handling & live console
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTechFilter();
   initFormHandling();
   initSmoothScroll();
+  initLiveConsoleStream();
 });
 
 /* ── Navigation Scroll Behavior ──────────────────────────── */
@@ -20,18 +21,13 @@ function initNavigation() {
   const nav = document.querySelector('.nav');
   if (!nav) return;
 
-  let lastScroll = 0;
-
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 50) {
+    if (currentScroll > 40) {
       nav.classList.add('scrolled');
     } else {
       nav.classList.remove('scrolled');
     }
-
-    lastScroll = currentScroll;
   }, { passive: true });
 }
 
@@ -66,8 +62,7 @@ function initMobileMenu() {
     overlay.addEventListener('click', closeMenu);
   }
 
-  // Close menu when a link is clicked
-  const mobileLinks = mobileMenu.querySelectorAll('.nav__link');
+  const mobileLinks = mobileMenu.querySelectorAll('.nav__link, .btn');
   mobileLinks.forEach((link) => {
     link.addEventListener('click', closeMenu);
   });
@@ -84,29 +79,65 @@ function initTechFilter() {
     tab.addEventListener('click', () => {
       const filter = tab.dataset.filter;
 
-      // Update active tab
       tabs.forEach((t) => t.classList.remove('active'));
       tab.classList.add('active');
 
-      // Filter badges
       badges.forEach((badge) => {
-        const category = badge.dataset.category;
-        if (filter === 'all' || category === filter) {
-          badge.style.display = '';
-          badge.style.opacity = '1';
-          badge.style.transform = 'scale(1)';
+        const category = badge.dataset.category || '';
+        if (filter === 'all' || category.includes(filter)) {
+          badge.style.display = 'flex';
+          setTimeout(() => {
+            badge.style.opacity = '1';
+            badge.style.transform = 'translateY(0) scale(1)';
+          }, 10);
         } else {
           badge.style.opacity = '0';
-          badge.style.transform = 'scale(0.8)';
+          badge.style.transform = 'scale(0.85)';
           setTimeout(() => {
-            if (!badge.dataset.category.includes(filter) && filter !== 'all') {
-              badge.style.display = 'none';
-            }
-          }, 300);
+            badge.style.display = 'none';
+          }, 250);
         }
       });
     });
   });
+}
+
+/* ── Live Hero Operations Console Dynamic Event Stream ───── */
+function initLiveConsoleStream() {
+  const stream = document.querySelector('.console-stream');
+  if (!stream) return;
+
+  const mockEvents = [
+    { tag: '[RAG-ENGINE]', msg: 'LegalHub vector indexing: 48,000 chunks synced', color: 'var(--cyan)' },
+    { tag: '[KUBERNETES]', msg: 'me-central-1: node affinity rebalanced (0ms lag)', color: 'var(--emerald)' },
+    { tag: '[SECURITY]', msg: 'Zero-Trust mTLS token verified: AES-256-GCM', color: 'var(--gold)' },
+    { tag: '[FINOPS]', msg: 'Cloud auto-scaler reduced idle instances by 38%', color: 'var(--emerald)' },
+    { tag: '[NETWORK]', msg: 'Dubai edge CDN cache hit ratio: 99.2%', color: 'var(--cyan)' },
+    { tag: '[LLM-ROUTER]', msg: 'Model fallback to Claude-3.5-Sonnet: 142ms latency', color: 'var(--gold)' }
+  ];
+
+  let eventIdx = 0;
+
+  setInterval(() => {
+    const lines = stream.querySelectorAll('.console-stream__line');
+    if (lines.length >= 4) {
+      lines[0].remove();
+    }
+
+    const now = new Date();
+    const timeStr = `[${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}]`;
+    const ev = mockEvents[eventIdx % mockEvents.length];
+    eventIdx++;
+
+    const newLine = document.createElement('div');
+    newLine.className = 'console-stream__line';
+    newLine.innerHTML = `
+      <span class="time">${timeStr}</span>
+      <span class="tag" style="color:${ev.color}">${ev.tag}</span>
+      <span>${ev.msg}</span>
+    `;
+    stream.appendChild(newLine);
+  }, 4000);
 }
 
 /* ── Form Handling — Real Backend API ────────────────────── */
@@ -119,17 +150,13 @@ function initFormHandling() {
 
     const btn       = form.querySelector('#form-submit-btn');
     const btnSpan   = btn.querySelector('span');
-    const formWrap  = form;
     const successEl = document.getElementById('form-success');
 
-    // Collect form data
     const data = {
       name:    document.getElementById('form-name')?.value?.trim(),
       email:   document.getElementById('form-email')?.value?.trim(),
-      company: document.getElementById('form-company')?.value?.trim(),
-      phone:   document.getElementById('form-phone')?.value?.trim(),
-      country: document.getElementById('form-country')?.value?.trim(),
-      service: document.getElementById('form-service')?.value,
+      company: document.getElementById('form-company')?.value?.trim() || 'N/A',
+      service: document.getElementById('form-service')?.value || 'General Consultation',
       message: document.getElementById('form-message')?.value?.trim()
     };
 
@@ -140,11 +167,17 @@ function initFormHandling() {
 
     // Loading state
     btn.disabled = true;
-    btnSpan.textContent = 'Sending...';
+    btnSpan.textContent = 'Transmitting Discovery Request...';
     btn.style.opacity = '0.7';
 
+    // Local host dynamic routing
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const apiUrl = isLocal && window.location.port !== '3001' 
+      ? `http://localhost:3001/ahmadcompany/contact` 
+      : '/ahmadcompany/contact';
+
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -153,25 +186,24 @@ function initFormHandling() {
       const result = await response.json();
 
       if (result.success) {
-        // Show success state
         form.style.display = 'none';
         if (successEl) {
-          successEl.classList.add('show');
+          successEl.style.display = 'block';
+          successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-        console.log('✅ Lead submitted successfully');
       } else {
-        showFormToast(result.message || 'Something went wrong. Please try again.', 'error');
+        showFormToast(result.message || 'Error sending request. Please reach us via WhatsApp.', 'error');
         btn.disabled = false;
-        btnSpan.textContent = 'Send Message';
+        btnSpan.textContent = 'Submit Technical Discovery Request';
         btn.style.opacity = '';
       }
     } catch (err) {
-      // Fallback: if backend is unreachable, show WhatsApp option
-      console.warn('Backend unreachable, showing WhatsApp fallback');
-      showFormToast('Connection issue. Please reach us via WhatsApp below! ⬇️', 'warning');
+      console.warn('Backend unreachable, providing WhatsApp fallback');
+      showFormToast('Connecting to WhatsApp direct line for instant response...', 'warning');
       btn.disabled = false;
-      btnSpan.textContent = 'Send Message';
+      btnSpan.textContent = 'Submit Technical Discovery Request';
       btn.style.opacity = '';
+      window.open('https://wa.me/923226510517', '_blank');
     }
   });
 }
@@ -181,23 +213,21 @@ function showFormToast(message, type = 'info') {
   const existing = document.getElementById('form-toast');
   if (existing) existing.remove();
 
-  const color = type === 'error' ? '#ff4757' : type === 'warning' ? '#f0a500' : '#00c896';
+  const color = type === 'error' ? '#EF4444' : type === 'warning' ? '#F59E0B' : '#10B981';
 
   const toast = document.createElement('div');
   toast.id = 'form-toast';
   toast.style.cssText = `
-    position: fixed; bottom: 120px; right: 24px; z-index: 600;
-    padding: 14px 20px; border-radius: 12px; max-width: 320px;
-    background: rgba(7,13,26,0.98); border: 1px solid ${color};
-    color: #f0ece0; font-size: 14px; line-height: 1.5;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.5); animation: slideUp 0.3s ease;
+    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+    padding: 14px 20px; border-radius: 12px; max-width: 360px;
+    background: rgba(5,8,17,0.95); border: 1px solid ${color};
+    color: #F8FAFC; font-size: 14px; line-height: 1.5;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6); backdrop-filter: blur(16px);
   `;
   toast.textContent = message;
   document.body.appendChild(toast);
   setTimeout(() => toast.remove(), 5000);
 }
-
-
 
 /* ── Smooth Scroll for Anchor Links ──────────────────────── */
 function initSmoothScroll() {

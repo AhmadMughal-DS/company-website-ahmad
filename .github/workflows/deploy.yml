@@ -1,7 +1,7 @@
 # ============================================================
-# AHMAD & CO. — CI/CD Pipeline
+# CLOUDREACH / AHMAD & CO. — CI/CD Pipeline
 # Registry : Docker Hub  (DOCKER_USERNAME / DOCKER_PAT)
-# Deploy   : VM via SSH  (VM_IP / VM_USERNAME / VM_PASSWORD)
+# Deploy   : VM via SSH  (VM_IP / VM_USERNAME / VM_PRIVATE_KEY)
 # Checkout : AHMAD_PAT   (private repo access)
 # Security : pinned action SHAs, secret scanning, Trivy
 # ============================================================
@@ -171,10 +171,9 @@ jobs:
       - name: Verify content
         run: |
           BODY=$(curl -s http://localhost:8080)
-          echo "$BODY" | grep -q "AHMAD"                  && echo "✅ Brand name found"      || echo "❌ Brand name missing"
-          echo "$BODY" | grep -q "Digital Transformation"  && echo "✅ Hero headline found"   || echo "❌ Hero headline missing"
-          echo "$BODY" | grep -q "DevOps"                  && echo "✅ Services found"         || echo "❌ Services missing"
-          echo "$BODY" | grep -q "ahmad.dstech@gmail.com"  && echo "✅ Contact email found"   || echo "⚠️  Contact email missing"
+          echo "$BODY" | grep -qiE "CLOUDREACH|AHMAD"     && echo "✅ Brand name found"      || echo "❌ Brand name missing"
+          echo "$BODY" | grep -qiE "Cloud & AI|DevOps"     && echo "✅ Hero/Services found"   || echo "❌ Services missing"
+          echo "$BODY" | grep -qiE "ahmad.dstech@gmail.com|wa.me" && echo "✅ Contact info found"    || echo "⚠️  Contact info missing"
 
       - name: Check security headers
         run: |
@@ -200,27 +199,26 @@ jobs:
         run: docker rm -f test-site || true
 
   # ──────────────────────────────────────────────────────────
-  # Job 4 — Deploy to VM via SSH (password auth)
-  # Runs ONLY on push to main, after build + test pass
+  # Job 4 — Deploy to VM via SSH (SSH key auth)
+  # Runs on push to main or master, after build + test pass
   # ──────────────────────────────────────────────────────────
   deploy:
     name: 🚢 Deploy to Production VM
     runs-on: ubuntu-latest
     needs: [build, test]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    environment: production
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
     steps:
       - name: Deploy via SSH to VM
         uses: appleboy/ssh-action@2bbe67b1952e4571b3a9ea91c6d1ac12c47ff3f5 # v1.2.0
         with:
           host:     ${{ secrets.VM_IP }}
           username: ${{ secrets.VM_USERNAME }}
-          password: ${{ secrets.VM_PASSWORD }}
+          key:      ${{ secrets.VM_PRIVATE_KEY }}
           port:     22
-          timeout:  60s
+          timeout:  120s
           script: |
             set -e
-            echo "🚀 Starting deployment — AHMAD & CO. Website"
+            echo "🚀 Starting deployment — CLOUDREACH / AHMAD & CO. Website"
             echo "📅 Time: $(date)"
 
             # ── Login to Docker Hub ──────────────────────────

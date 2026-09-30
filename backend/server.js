@@ -1,5 +1,5 @@
 // ============================================================
-// AHMAD & CO. Backend API — server.js
+// CLOUDREACH Backend API — server.js
 // Express server: Contact form + Lead storage
 // Security: helmet, rate-limit, CORS, dotenv
 // ============================================================
@@ -45,7 +45,7 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 // ── CORS — allow only frontend domain ─────────────────────────
 const allowedOrigins = [
-  process.env.FRONTEND_URL || 'https://ahmadco.tech',
+  process.env.FRONTEND_URL || 'https://cloudreach.tech',
   'http://localhost:8080',
   'http://127.0.0.1:8080'
 ];
@@ -82,14 +82,14 @@ const contactLimiter = rateLimit({
 });
 
 // ── Routes ────────────────────────────────────────────────────
-app.use('/api', generalLimiter);
-app.use('/api/contact', contactLimiter, contactRoutes);
+app.use('/ahmadcompany', generalLimiter);
+app.use('/ahmadcompany/contact', contactLimiter, contactRoutes);
 
 // Health check (public)
-app.get('/api/health', (req, res) => {
+app.get('/ahmadcompany/health', (req, res) => {
   res.json({
     status: 'ok',
-    service: 'AHMAD & CO. Backend',
+    service: 'CLOUDREACH Backend',
     env: ENV,
     timestamp: new Date().toISOString()
   });
@@ -113,7 +113,7 @@ app.use((err, req, res, next) => {
 
 // ── Start ─────────────────────────────────────────────────────
 app.listen(PORT, () => {
-  console.log(`✅ AHMAD & CO. Backend running on port ${PORT} [${ENV}]`);
+  console.log(`✅ CLOUDREACH Backend running on port ${PORT} [${ENV}]`);
   console.log(`📧 Notify email: ${process.env.NOTIFY_EMAIL || '(not set)'}`);
   console.log(`🔒 CORS origins: ${allowedOrigins.join(', ')}`);
   if (!process.env.ADMIN_TOKEN) {

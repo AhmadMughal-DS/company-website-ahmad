@@ -1,18 +1,18 @@
-# robots.txt for AHMAD & CO. — ahmadco.tech
+# robots.txt for CLOUDREACH — cloudreach.tech
 # ─────────────────────────────────────────────
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://ahmadco.tech/sitemap.xml
+Sitemap: https://cloudreach.tech/sitemap.xml
 
 # Crawl-delay (optional, honored by some bots)
 Crawl-delay: 1
 
 # Block admin/private areas (add as needed)
 Disallow: /admin/
-Disallow: /api/
+Disallow: /ahmadcompany/
 Disallow: /private/
 Disallow: /.git/
 Disallow: /.github/

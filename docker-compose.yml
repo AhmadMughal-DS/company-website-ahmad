@@ -48,7 +48,7 @@ services:
       - leads_data:/app/data
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3001/api/health"]
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3001/ahmadcompany/health"]
       interval: 30s
       timeout: 5s
       retries: 3

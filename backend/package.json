@@ -1,7 +1,7 @@
 {
-  "name": "ahmadco-backend",
+  "name": "cloudreach-backend",
   "version": "1.1.0",
-  "description": "AHMAD & CO. Backend API — Contact form & Lead management",
+  "description": "CLOUDREACH Backend API — Contact form & Lead management",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
