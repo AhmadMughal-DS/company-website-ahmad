@@ -159,14 +159,20 @@ jobs:
 
       - name: Health check
         run: |
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8080)
-          echo "📡 HTTP Status: $STATUS"
+          for i in {1..15}; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8080 || echo "000")
+            echo "📡 Attempt $i — HTTP Status: $STATUS"
+            if [ "$STATUS" = "200" ]; then
+              echo "✅ Site is healthy!"
+              break
+            fi
+            sleep 2
+          done
           if [ "$STATUS" != "200" ]; then
             echo "❌ Health check failed!"
             docker logs test-site
             exit 1
           fi
-          echo "✅ Site is healthy!"
 
       - name: Verify content
         run: |

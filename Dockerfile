@@ -23,7 +23,7 @@ RUN rm -f /usr/share/nginx/html/Dockerfile \
           /usr/share/nginx/html/README.md
 
 # Custom nginx config for SPA + performance
-COPY website.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port
 EXPOSE 80
