@@ -9,8 +9,8 @@ FROM nginx:1.27-alpine AS production
 # Security: run as non-root
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
-# Remove default nginx content
-RUN rm -rf /usr/share/nginx/html/*
+# Remove default nginx content and default entrypoint scripts
+RUN rm -rf /usr/share/nginx/html/* /docker-entrypoint.d/*
 
 # Copy website files
 COPY . /usr/share/nginx/html/
@@ -28,9 +28,7 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Expose port
 EXPOSE 80
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget -q --spider http://localhost/ || exit 1
-
-# Start nginx
+# Bypass entrypoint scripts and run nginx directly
+ENTRYPOINT []
 CMD ["nginx", "-g", "daemon off;"]
+
